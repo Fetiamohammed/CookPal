@@ -1,0 +1,19 @@
+{
+    "categories": {
+      "Appetizers": {
+        "image-file": "../../assets/image/appetizers_category.jpg"
+      },
+      "Main_dishes": {
+        "image-file": "./assets/image/main_dishes_category.jpg"
+      },
+      "Side_dishes": {
+        "image-file": "./assets/image/side_dishes_category.jpg"
+      },
+      "Desserts": {
+        "image-file": "./assets/image/desserts_category.jpg"
+      },
+      "Beverages": {
+        "image-file": "./assets/image/beverages_category.jpg"
+      }
+    }
+  }

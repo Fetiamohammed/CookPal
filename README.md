@@ -1,2 +1,2 @@
 # CookPal
-food recipe app with react native expo
+CookPal app with react native expo
