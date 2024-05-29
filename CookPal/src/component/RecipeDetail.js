@@ -42,7 +42,7 @@ const RecipeDetail = ({ route }) => {
                     image_url: recipe.image_file
                 })
             })
-            Alert.alert('Success', 'Recipe added to favorites!')
+            // Alert.alert('Success', 'Recipe added to favorites!')
             navigation.navigate('Profile')
         } catch (error) {
             console.error('Error adding recipe to favorites: ', error)

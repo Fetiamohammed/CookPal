@@ -7,8 +7,8 @@ import {
     StyleSheet,
     TouchableOpacity
 } from 'react-native'
-import { useSelector, useDispatch } from 'react-redux'
 import Icon from 'react-native-vector-icons/FontAwesome'
+import { useSelector, useDispatch } from 'react-redux'
 import { useNavigation } from '@react-navigation/native'
 import { useGetUserFavoritesQuery } from '../store/api/UsersApi'
 import { logout } from '../store/slice/authSlice'
@@ -39,13 +39,6 @@ const UsersProfile = () => {
     return (
         <View style={styles.container}>
             <View style={styles.header}>
-                <Icon
-                    name="user"
-                    style={styles.icon}
-                    size={50}
-                    color="rgb(16 185 129)"
-                />
-                {/* <Text style={styles.userName}>{user.name}</Text> */}
                 <TouchableOpacity
                     style={styles.logoutButton}
                     onPress={handleLogout}
@@ -53,6 +46,24 @@ const UsersProfile = () => {
                     <Text style={styles.logoutButtonText}>Log Out</Text>
                 </TouchableOpacity>
             </View>
+            <View style={styles.profileSection}>
+                <Image
+                    source={require('../../assets/image/profile-image.jpg')}
+                    style={styles.userImage}
+                />
+                <View style={styles.profileText}>
+                    <Text style={styles.userName}>{user.name}</Text>
+                    <TouchableOpacity>
+                        <Icon
+                            name="angle-down"
+                            style={styles.arrowIcon}
+                            size={20}
+                            color="rgb(16 185 129)"
+                        />
+                    </TouchableOpacity>
+                </View>
+            </View>
+            <Text style={styles.title}>Your Favorite Recipes</Text>
             <FlatList
                 data={favorites}
                 keyExtractor={(item) => item.id}
@@ -66,6 +77,12 @@ const UsersProfile = () => {
                     </View>
                 )}
             />
+            {/* <View style={styles.addRecipe}>
+                <Text style={styles.add}>Add New Recipes</Text>
+                <TouchableOpacity>
+                    <Icon name="plus" style={styles.plusIcon} size={20} color="rgb(16 185 129)" />
+                </TouchableOpacity>
+            </View> */}
         </View>
     )
 }
@@ -78,27 +95,47 @@ const styles = StyleSheet.create({
     },
     header: {
         flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        marginBottom: 20,
-        marginVertical: 20
+        justifyContent: 'flex-end',
+        marginBottom: 20
     },
-    // userName: {
-    //     fontSize: 24,
-    //     fontWeight: 'bold',
-    //     marginLeft: 10
-    // },
     logoutButton: {
-        backgroundColor: '#ff6347',
+        backgroundColor: 'rgb(52 211 153)',
         paddingVertical: 5,
         paddingHorizontal: 10,
-        borderRadius: 10
+        borderRadius: 10,
+        marginTop: 20
     },
     logoutButtonText: {
         color: '#fff',
         fontSize: 16
     },
-    icon: {
+    profileSection: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        marginTop: 20,
+        backgroundColor: 'rgb(226 232 240)',
+        borderRadius: 10
+    },
+    userImage: {
+        width: 50,
+        height: 50,
+        borderRadius: 25,
+        marginRight: 10
+    },
+    profileText: {
+        flexDirection: 'row',
+        alignItems: 'center'
+    },
+    userName: {
+        fontSize: 18,
+        fontWeight: 'bold'
+    },
+    arrowIcon: {
+        marginLeft: 5
+    },
+    title: {
+        fontSize: 20,
+        fontWeight: 'bold',
         marginTop: 20
     },
     favoriteItem: {
@@ -123,6 +160,18 @@ const styles = StyleSheet.create({
     recipeName: {
         fontSize: 18,
         fontWeight: 'bold'
+    },
+    addRecipe: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        marginTop: 20
+    },
+    add: {
+        fontSize: 18,
+        color: 'rgb(16 185 129)'
+    },
+    plusIcon: {
+        marginLeft: 5
     }
 })
 

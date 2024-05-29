@@ -7,7 +7,7 @@ const BottomTabIcon = ({ focused, color, route }) => {
 
     switch (route.name) {
         case 'Home':
-            iconName = focused ? 'home' : 'home-outline'
+            iconName =  'home';
             break
         case 'Profile':
             iconName = focused ? 'person' : 'person-outline'

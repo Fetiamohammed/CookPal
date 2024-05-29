@@ -32,7 +32,7 @@ export default function LoginScreen({ navigation }) {
                 const userDocData = userDocSnap.data()
                 if ((password, userDocData.password)) {
                     dispatch(loginSuccess(userDocData))
-                    Alert.alert('Success', 'Login successful')
+                    // Alert.alert('Success', 'Login successful')
                     navigation.navigate('Home')
                 } else {
                     throw new Error('Invalid password')

@@ -18,7 +18,7 @@ export default function SignUpScreen({ navigation }) {
     const handleSignUp = async () => {
         try {
             await setDoc(doc(db, 'users', email), { name, email, password })
-            Alert.alert('Success', 'Account created successfully!')
+            // Alert.alert('Success', 'Account created successfully!')
             navigation.navigate('LoginScreen')
         } catch (error) {
             Alert.alert('Error', 'An error occurred during signup.')
